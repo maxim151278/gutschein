@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Premium Gutschein</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Georgia,serif;
+background:#efe3c8;
+display:flex;
+justify-content:center;
+padding:20px;
+color:#6e512d;
+}
+
+.certificate{
+position:relative;
+width:900px;
+height:1270px;
+
+background-image:url('https://maxim151278.github.io/gutschein/premium-bg.jpg.png');
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+overflow:hidden;
+}
+
+.overlay{
+position:absolute;
+inset:0;
+background:rgba(255,248,235,0.18);
+}
+
+.content{
+position:relative;
+z-index:2;
+height:100%;
+padding:90px 80px;
+text-align:center;
+}
+
+.logo{
+width:180px;
+margin-bottom:25px;
+}
+
+.brand{
+font-size:28px;
+letter-spacing:4px;
+margin-top:10px;
+color:#9a7336;
+}
+
+.title{
+font-size:82px;
+letter-spacing:8px;
+margin-top:15px;
+font-weight:normal;
+}
+
+.subtitle{
+font-size:28px;
+font-style:italic;
+margin-top:10px;
+color:#b1843f;
+}
+
+.line{
+width:220px;
+height:2px;
+margin:35px auto;
+background:linear-gradient(to right,transparent,#c8a25a,transparent);
+}
+
+.label{
+font-size:24px;
+letter-spacing:5px;
+margin-top:30px;
+color:#9a7336;
+}
+
+.amount{
+font-size:95px;
+font-weight:bold;
+margin-top:20px;
+color:#5f431f;
+}
+
+.code-label{
+margin-top:35px;
+font-size:24px;
+letter-spacing:4px;
+color:#9a7336;
+}
+
+.code{
+display:inline-block;
+margin-top:20px;
+padding:16px 34px;
+border:2px solid rgba(177,132,63,0.4);
+background:rgba(255,255,255,0.45);
+font-size:36px;
+font-weight:bold;
+letter-spacing:3px;
+border-radius:12px;
+}
+
+.receiver{
+margin-top:40px;
+font-size:34px;
+color:#8b6833;
+}
+
+.receiver-name{
+font-size:56px;
+font-style:italic;
+margin-left:12px;
+}
+
+.info{
+margin-top:60px;
+font-size:28px;
+line-height:1.8;
+}
+
+.secure{
+margin-top:50px;
+font-size:22px;
+font-style:italic;
+opacity:.8;
+}
+
+.date{
+position:absolute;
+bottom:70px;
+left:0;
+right:0;
+font-size:22px;
+letter-spacing:2px;
+}
+
+@media print{
+body{
+padding:0;
+background:white;
+}
+
+.certificate{
+width:100%;
+height:100vh;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="certificate">
+
+<div class="overlay"></div>
+
+<div class="content">
+
+<img class="logo"
+src="https://d2j6dbq0eux0bg.cloudfront.net/images/91909776/categories/199073207/5704855230.png">
+
+<div class="brand">
+Antonia Beauty & Wellness
+</div>
+
+<div class="title">
+GUTSCHEIN
+</div>
+
+<div class="subtitle">
+Ein Geschenk für besondere Momente
+</div>
+
+<div class="line"></div>
+
+<div class="label">
+GUTSCHEINWERT
+</div>
+
+<div class="amount">
+<span id="betrag">100</span> €
+</div>
+
+<div class="code-label">
+GUTSCHEINCODE
+</div>
+
+<div class="code" id="code">
+XXXX-XXXX
+</div>
+
+<div class="receiver">
+Für:
+<span class="receiver-name" id="name">
+Janine
+</span>
+</div>
+
+<div class="info">
+Einlösbar im Studio & Online<br>
+Gültig 12 Monate ab Kaufdatum<br>
+Keine Barauszahlung möglich
+</div>
+
+<div class="secure">
+Gültig nur mit dem individuellen Gutscheincode aus der Bestätigungs-E-Mail.
+</div>
+
+<div class="date">
+AUSGESTELLT AM:
+<span id="date"></span>
+</div>
+
+</div>
+</div>
+
+<script>
+
+function getHashParams() {
+
+const hash = window.location.hash.substring(1);
+const params = new URLSearchParams(hash);
+
+return {
+betrag: params.get('betrag') || '100',
+code: params.get('code') || 'XXXX-XXXX',
+name: params.get('name') || 'Für Dich'
+};
+
+}
+
+const data = getHashParams();
+
+document.getElementById('betrag').textContent = data.betrag;
+document.getElementById('code').textContent = data.code;
+document.getElementById('name').textContent = data.name;
+
+document.getElementById('date').textContent =
+new Date().toLocaleDateString('de-DE');
+
+</script>
+
+</body>
+</html>
