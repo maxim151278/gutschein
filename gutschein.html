@@ -235,14 +235,15 @@ alt="Antonia Beauty & Wellness Logo">
 
 <script>
 function extractAmount() {
-  const params = new URLSearchParams(window.location.search);
-  let betrag = params.get("betrag");
+  let betrag = "";
+
+  const searchParams = new URLSearchParams(window.location.search);
+  betrag = searchParams.get("betrag") || "";
 
   if (!betrag && window.location.hash) {
     const hash = window.location.hash.replace(/^#/, "");
-    if (hash.startsWith("betrag=")) {
-      betrag = hash.substring("betrag=".length);
-    }
+    const hashParams = new URLSearchParams(hash);
+    betrag = hashParams.get("betrag") || "";
   }
 
   if (!betrag) return "";
@@ -251,12 +252,15 @@ function extractAmount() {
     betrag = decodeURIComponent(betrag);
   } catch (e) {}
 
-  betrag = betrag.replace(/[^\d.,]/g, "");
+  betrag = betrag.replace(",", ".");
+  const number = parseFloat(betrag);
 
-  if (betrag.endsWith(",00")) betrag = betrag.slice(0, -3);
-  if (betrag.endsWith(".00")) betrag = betrag.slice(0, -3);
+  if (isNaN(number)) return "";
 
-  return betrag;
+  return number.toLocaleString("de-DE", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
 }
 
 document.getElementById("betrag").textContent = extractAmount();
