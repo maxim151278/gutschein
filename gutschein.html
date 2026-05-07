@@ -3,284 +3,224 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Premium Gutschein</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-font-family:Georgia,serif;
-background:#efe3c8;
-display:flex;
-justify-content:center;
-padding:20px;
-color:#6e512d;
+  background:#efe3c8;
+  display:flex;
+  justify-content:center;
+  padding:20px;
+  font-family:Georgia,serif;
+  color:#5f431f;
 }
 
 .certificate{
-position:relative;
-width:900px;
-height:1270px;
-
-background-image:url('https://maxim151278.github.io/gutschein/premium-bg.jpg.png');
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-
-overflow:hidden;
-}
-
-.overlay{
-position:absolute;
-inset:0;
-background:rgba(255,248,235,0.18);
+  position:relative;
+  width:900px;
+  height:1270px;
+  background:url('https://maxim151278.github.io/gutschein/premium-bg.jpg.png') center/cover no-repeat;
+  overflow:hidden;
 }
 
 .content{
-position:relative;
-z-index:2;
-height:100%;
-padding:90px 80px;
-text-align:center;
+  position:relative;
+  z-index:2;
+  height:100%;
+  text-align:center;
+  padding:85px 90px 0;
 }
 
 .logo{
-width:180px;
-margin-bottom:25px;
+  width:150px;
+  margin-bottom:28px;
 }
 
 .brand{
-font-size:28px;
-letter-spacing:4px;
-margin-top:10px;
-color:#9a7336;
+  font-size:27px;
+  letter-spacing:4px;
+  color:#9a7336;
+  margin-bottom:20px;
 }
 
 .title{
-font-size:82px;
-letter-spacing:8px;
-margin-top:15px;
-font-weight:normal;
+  font-size:78px;
+  letter-spacing:8px;
+  font-weight:400;
+  line-height:1;
+  margin-bottom:18px;
 }
 
 .subtitle{
-font-size:28px;
-font-style:italic;
-margin-top:10px;
-color:#b1843f;
+  font-size:27px;
+  font-style:italic;
+  color:#a97c37;
+  margin-bottom:36px;
 }
 
 .line{
-width:220px;
-height:2px;
-margin:35px auto;
-background:linear-gradient(to right,transparent,#c8a25a,transparent);
+  width:210px;
+  height:2px;
+  margin:0 auto 32px;
+  background:linear-gradient(to right,transparent,#c8a25a,transparent);
 }
 
 .label{
-font-size:24px;
-letter-spacing:5px;
-margin-top:30px;
-color:#9a7336;
+  font-size:22px;
+  letter-spacing:5px;
+  color:#9a7336;
+  margin-bottom:12px;
 }
 
 .amount{
-font-size:95px;
-font-weight:bold;
-margin-top:20px;
-color:#5f431f;
+  font-size:88px;
+  font-weight:bold;
+  line-height:1;
+  margin-bottom:28px;
 }
 
 .code-label{
-margin-top:35px;
-font-size:24px;
-letter-spacing:4px;
-color:#9a7336;
+  font-size:20px;
+  letter-spacing:4px;
+  color:#9a7336;
+  margin-bottom:12px;
 }
 
 .code{
-display:inline-block;
-margin-top:20px;
-padding:16px 34px;
-border:2px solid rgba(177,132,63,0.4);
-background:rgba(255,255,255,0.45);
-font-size:36px;
-font-weight:bold;
-letter-spacing:3px;
-border-radius:12px;
+  display:inline-block;
+  padding:14px 32px;
+  background:rgba(255,255,255,.62);
+  border:1px solid rgba(177,132,63,.42);
+  border-radius:14px;
+  font-size:34px;
+  font-weight:bold;
+  letter-spacing:3px;
+  margin-bottom:30px;
 }
 
 .receiver{
-margin-top:40px;
-font-size:34px;
-color:#8b6833;
+  font-size:30px;
+  color:#8b6833;
+  margin-bottom:28px;
 }
 
 .receiver-name{
-font-size:56px;
-font-style:italic;
-margin-left:12px;
+  font-size:46px;
+  font-style:italic;
+  margin-left:10px;
 }
 
 .info{
-position:absolute;
-bottom:170px;
-left:50%;
-transform:translateX(-50%);
-width:78%;
-
-padding:18px 24px;
-
-background:rgba(255,248,235,0.72);
-
-border-radius:22px;
-
-line-height:1.55;
-font-size:23px;
-
-color:#4e3a1f;
-
-box-shadow:0 6px 24px rgba(0,0,0,0.06);
-
-backdrop-filter:blur(3px);
+  width:70%;
+  margin:0 auto;
+  padding:14px 22px;
+  background:rgba(255,248,235,.68);
+  border-radius:18px;
+  font-size:20px;
+  line-height:1.55;
+  color:#4e3a1f;
 }
 
 .secure{
-position:absolute;
-bottom:105px;
-left:50%;
-transform:translateX(-50%);
-
-width:80%;
-
-font-size:16px;
-line-height:1.5;
-
-font-style:italic;
-color:#6e5227;
-
-background:rgba(255,248,235,0.55);
-
-padding:10px 16px;
-
-border-radius:14px;
+  position:absolute;
+  bottom:92px;
+  left:50%;
+  transform:translateX(-50%);
+  width:78%;
+  font-size:15px;
+  line-height:1.4;
+  font-style:italic;
+  color:#6e5227;
+  background:rgba(255,248,235,.55);
+  padding:8px 14px;
+  border-radius:12px;
 }
 
 .date{
-position:absolute;
-
-bottom:42px;
-left:0;
-right:0;
-
-font-size:18px;
-letter-spacing:2px;
-
-color:#8b6c35;
-
-font-weight:bold;
+  position:absolute;
+  bottom:48px;
+  left:0;
+  right:0;
+  font-size:17px;
+  letter-spacing:2px;
+  color:#8b6c35;
+  font-weight:bold;
 }
 
 @media print{
-body{
-padding:0;
-background:white;
+  body{padding:0;background:white}
+  .certificate{width:100%;height:100vh}
 }
-
-.certificate{
-width:100%;
-height:100vh;
-}
-}
-
 </style>
 </head>
 
 <body>
 
 <div class="certificate">
+  <div class="content">
 
-<div class="overlay"></div>
+    <img class="logo" src="https://d2j6dbq0eux0bg.cloudfront.net/images/91909776/categories/199073207/5704855230.png" alt="Antonia Logo">
 
-<div class="content">
+    <div class="brand">Antonia Beauty & Wellness</div>
 
-<img class="logo"
-src="https://d2j6dbq0eux0bg.cloudfront.net/images/91909776/categories/199073207/5704855230.png">
+    <div class="title">GUTSCHEIN</div>
 
-<div class="brand">
-Antonia Beauty & Wellness
-</div>
+    <div class="subtitle">Ein Geschenk für besondere Momente</div>
 
-<div class="title">
-GUTSCHEIN
-</div>
+    <div class="line"></div>
 
-<div class="subtitle">
-Ein Geschenk für besondere Momente
-</div>
+    <div class="label">GUTSCHEINWERT</div>
 
-<div class="line"></div>
+    <div class="amount"><span id="betrag">100</span> €</div>
 
-<div class="label">
-GUTSCHEINWERT
-</div>
+    <div class="code-label">GUTSCHEINCODE</div>
 
-<div class="amount">
-<span id="betrag">100</span> €
-</div>
+    <div class="code" id="code">XXXX-XXXX</div>
 
-<div class="code-label">
-GUTSCHEINCODE
-</div>
+    <div class="receiver">
+      Für:<span class="receiver-name" id="name">Für Dich</span>
+    </div>
 
-<div class="code" id="code">
-XXXX-XXXX
-</div>
+    <div class="info">
+      Einlösbar im Studio & Online<br>
+      Gültig 12 Monate ab Kaufdatum<br>
+      Keine Barauszahlung möglich
+    </div>
 
-<div class="receiver">
-Für:
-<span class="receiver-name" id="name">
-Janine
-</span>
-</div>
+    <div class="secure">
+      Gültig nur mit dem individuellen Gutscheincode aus der Bestätigungs-E-Mail.
+    </div>
 
-<div class="info">
-Einlösbar im Studio & Online<br>
-Gültig 12 Monate ab Kaufdatum<br>
-Keine Barauszahlung möglich
-</div>
+    <div class="date">
+      AUSGESTELLT AM: <span id="date"></span>
+    </div>
 
-<div class="secure">
-Gültig nur mit dem individuellen Gutscheincode aus der Bestätigungs-E-Mail.
-</div>
-
-<div class="date">
-AUSGESTELLT AM:
-<span id="date"></span>
-</div>
-
-</div>
+  </div>
 </div>
 
 <script>
+function getHashParams(){
+  const hash = window.location.hash.substring(1);
+  const params = new URLSearchParams(hash);
 
-function getHashParams() {
+  let betrag = params.get('betrag') || '100';
+  betrag = betrag.replace(',', '.');
 
-const hash = window.location.hash.substring(1);
-const params = new URLSearchParams(hash);
+  let number = parseFloat(betrag);
+  if (!isNaN(number)) {
+    betrag = number.toLocaleString('de-DE', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2
+    });
+  }
 
-return {
-betrag: params.get('betrag') || '100',
-code: params.get('code') || 'XXXX-XXXX',
-name: params.get('name') || 'Für Dich'
-};
-
+  return {
+    betrag: betrag,
+    code: params.get('code') || 'XXXX-XXXX',
+    name: params.get('name') || 'Für Dich'
+  };
 }
 
 const data = getHashParams();
@@ -288,10 +228,7 @@ const data = getHashParams();
 document.getElementById('betrag').textContent = data.betrag;
 document.getElementById('code').textContent = data.code;
 document.getElementById('name').textContent = data.name;
-
-document.getElementById('date').textContent =
-new Date().toLocaleDateString('de-DE');
-
+document.getElementById('date').textContent = new Date().toLocaleDateString('de-DE');
 </script>
 
 </body>
